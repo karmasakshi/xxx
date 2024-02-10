@@ -20,17 +20,18 @@ import { map, shareReplay } from 'rxjs/operators';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe
+    AsyncPipe,
   ],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrl: './main.component.css',
 })
 export class MainComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
-      shareReplay()
+      map((result) => result.matches),
+      shareReplay(),
     );
 }

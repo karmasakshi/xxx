@@ -14,10 +14,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "exactOptionalPropertyTypes": true,
@@ -36,7 +33,7 @@
       "@xxx/interfaces/*": ["src/app/interfaces/*"],
       "@xxx/services/*": ["src/app/services/*"],
       "@xxx/types/*": ["src/app/types/*"]
-    },
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

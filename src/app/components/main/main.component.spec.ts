@@ -9,13 +9,9 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        MainComponent,
-        NoopAnimationsModule
-      ]
-    })
-    .compileComponents();
-    
+      imports: [MainComponent, NoopAnimationsModule],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

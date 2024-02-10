@@ -9,16 +9,22 @@ import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@ngneat/transloco';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync(), provideServiceWorker('ngsw-worker.js', {
-        enabled: !isDevMode(),
-        registrationStrategy: 'registerWhenStable:30000'
-    }), provideHttpClient(), provideTransloco({
-        config: {
-          availableLangs: ['ar', 'en'],
-          defaultLang: 'en',
-          reRenderOnLangChange: true,
-          prodMode: !isDevMode(),
-        },
-        loader: TranslocoHttpLoader
-      })]
+  providers: [
+    provideRouter(routes),
+    provideAnimationsAsync(),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+    provideHttpClient(),
+    provideTransloco({
+      config: {
+        availableLangs: ['ar', 'en'],
+        defaultLang: 'en',
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader,
+    }),
+  ],
 };

@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "@commitlint/config-angular"
-  ],
+  "extends": ["@commitlint/config-angular"],
   "rules": {
     "scope-empty": [2, "never"],
     "scope-enum": [2, "always", ["general"]]
