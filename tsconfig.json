@@ -28,7 +28,15 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@xxx/components/*": ["src/app/components/*"],
+      "@xxx/constants/*": ["src/app/constants/*"],
+      "@xxx/interfaces/*": ["src/app/interfaces/*"],
+      "@xxx/services/*": ["src/app/services/*"],
+      "@xxx/types/*": ["src/app/types/*"]
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
