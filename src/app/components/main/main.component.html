@@ -3,9 +3,9 @@
     #drawer
     class="sidenav"
     fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false"
+    [attr.role]="(isSmallViewport$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isSmallViewport$ | async) ? 'over' : 'side'"
+    [opened]="(isSmallViewport$ | async) === false"
   >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
@@ -16,7 +16,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      @if (isHandset$ | async) {
+      @if (isSmallViewport$ | async) {
         <button
           type="button"
           aria-label="Toggle sidenav"
