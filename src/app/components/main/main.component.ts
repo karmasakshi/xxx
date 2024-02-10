@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
@@ -27,15 +27,12 @@ import { LoggerService } from '@xxx/services/logger/logger.service';
   styleUrl: './main.component.css',
 })
 export class MainComponent {
-  private _breakpointObserver: BreakpointObserver;
-  private _loggerService: LoggerService;
-
   public isSmallViewport$: Observable<boolean>;
 
-  public constructor() {
-    this._breakpointObserver = inject(BreakpointObserver);
-    this._loggerService = inject(LoggerService);
-
+  public constructor(
+    private readonly _breakpointObserver: BreakpointObserver,
+    private readonly _loggerService: LoggerService,
+  ) {
     this.isSmallViewport$ = this._breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.Tablet])
       .pipe(

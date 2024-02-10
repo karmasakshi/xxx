@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { APP_NAME } from '@xxx/constants/app-name.constant';
 import { LoggerService } from '../logger/logger.service';
 
@@ -6,11 +6,9 @@ import { LoggerService } from '../logger/logger.service';
   providedIn: 'root',
 })
 export class StorageService {
-  private _loggerService: LoggerService;
   private _prefix: string;
 
-  public constructor() {
-    this._loggerService = inject(LoggerService);
+  public constructor(private readonly _loggerService: LoggerService) {
     this._prefix = APP_NAME.toLowerCase().replace(/\s/g, '-');
 
     this._loggerService.logServiceInitialization('StorageService');
