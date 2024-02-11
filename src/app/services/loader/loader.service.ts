@@ -8,7 +8,7 @@ import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interf
 })
 export class LoaderService {
   private readonly _defaultLoaderConfiguration: LoaderConfiguration;
-  private readonly _loaderSubject: BehaviorSubject<LoaderConfiguration>;
+  private readonly _loaderConfigurationSubject: BehaviorSubject<LoaderConfiguration>;
 
   public loaderConfiguration$: Observable<LoaderConfiguration>;
 
@@ -20,17 +20,17 @@ export class LoaderService {
       value: 0,
     };
 
-    this._loaderSubject = new BehaviorSubject<LoaderConfiguration>(
+    this._loaderConfigurationSubject = new BehaviorSubject<LoaderConfiguration>(
       this._defaultLoaderConfiguration,
     );
 
-    this.loaderConfiguration$ = this._loaderSubject.asObservable();
+    this.loaderConfiguration$ = this._loaderConfigurationSubject.asObservable();
 
     this._loggerService.logServiceInitialization('LoaderService');
   }
 
   public showLoader(): void {
-    this._loaderSubject.next({
+    this._loaderConfigurationSubject.next({
       ...this._defaultLoaderConfiguration,
       isVisible: true,
       mode: 'indeterminate',
@@ -38,7 +38,7 @@ export class LoaderService {
   }
 
   public hideLoader(): void {
-    this._loaderSubject.next({
+    this._loaderConfigurationSubject.next({
       ...this._defaultLoaderConfiguration,
       isVisible: false,
     });
