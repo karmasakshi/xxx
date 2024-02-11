@@ -6,7 +6,7 @@ import { LoggerService } from '../logger/logger.service';
   providedIn: 'root',
 })
 export class StorageService {
-  private _prefix: string;
+  private readonly _prefix: string;
 
   public constructor(private readonly _loggerService: LoggerService) {
     this._prefix = APP_NAME.toLowerCase().replace(/\s/g, '-');
