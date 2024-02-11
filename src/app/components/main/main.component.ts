@@ -24,7 +24,7 @@ import { LoggerService } from '@xxx/services/logger/logger.service';
     AsyncPipe,
   ],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css',
+  styleUrl: './main.component.scss',
 })
 export class MainComponent {
   public isSmallViewport$: Observable<boolean>;
