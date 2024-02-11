@@ -7,6 +7,9 @@ import { provideServiceWorker } from '@angular/service-worker';
 import { provideHttpClient } from '@angular/common/http';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@ngneat/transloco';
+import { DEFAULT_LANGUAGE } from './constants/default-language.constant';
+import { AVAILABLE_LANGUAGES } from './constants/available-languages.constant';
+import { Language } from './interfaces/language.interface';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,8 +22,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideTransloco({
       config: {
-        availableLangs: ['ar', 'en'],
-        defaultLang: 'en',
+        availableLangs: AVAILABLE_LANGUAGES.map(
+          (language: Language): string => language.value,
+        ),
+        defaultLang: DEFAULT_LANGUAGE.value,
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },
