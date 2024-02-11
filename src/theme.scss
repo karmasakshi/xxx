@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$xxx-primary: mat.define-palette(mat.$indigo-palette);
+$xxx-accent: mat.define-palette(mat.$pink-palette);
+$xxx-warn: mat.define-palette(mat.$red-palette);
+
+$xxx-typography: mat.define-typography-config(
+  $font-family: '"Noto Sans", sans-serif',
+);
+
+$xxx-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $xxx-primary,
+      accent: $xxx-accent,
+      warn: $xxx-warn,
+    ),
+    typography: $xxx-typography,
+  )
+);
+
+@include mat.all-component-themes($xxx-theme);
