@@ -24,7 +24,9 @@ export class StorageService {
 
   public getLocalStorageItem<T>(key: string): null | T {
     let value = null;
+
     const serializedValue = localStorage.getItem(this._prefix + '-' + key);
+
     if (serializedValue) {
       try {
         value = JSON.parse(serializedValue);
@@ -32,12 +34,15 @@ export class StorageService {
         this._loggerService.logUnknownError(error);
       }
     }
+
     return value;
   }
 
   public getSessionStorageItem<T>(key: string): null | T {
     let value = null;
+
     const serializedValue = sessionStorage.getItem(this._prefix + '-' + key);
+
     if (serializedValue) {
       try {
         value = JSON.parse(serializedValue);
@@ -45,6 +50,7 @@ export class StorageService {
         this._loggerService.logUnknownError(error);
       }
     }
+
     return value;
   }
 

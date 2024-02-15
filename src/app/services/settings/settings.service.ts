@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { LoggerService } from '../logger/logger.service';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Settings } from '@xxx/interfaces/settings.interface';
+import { TranslocoService } from '@ngneat/transloco';
 import { DEFAULT_LANGUAGE } from '@xxx/constants/default-language.constant';
-import { StorageService } from '../storage/storage.service';
 import { STORAGE_KEYS } from '@xxx/constants/storage-keys.constant';
+import { Settings } from '@xxx/interfaces/settings.interface';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { LoggerService } from '../logger/logger.service';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,7 @@ export class SettingsService {
   public settings$: Observable<Settings>;
 
   public constructor(
+    private readonly _translocoService: TranslocoService,
     private readonly _loggerService: LoggerService,
     private readonly _storageService: StorageService,
   ) {
@@ -29,14 +31,26 @@ export class SettingsService {
       ) || this._defaultSettings,
     );
 
+    this._translocoService.setActiveLang(
+      this._settingsSubject.getValue().language.value,
+    );
+
     this.settings$ = this._settingsSubject.asObservable();
 
     this._loggerService.logServiceInitialization('SettingsService');
   }
 
-  public storeAndUpdateSettings(settings: Settings): void {
-    this._storageService.setLocalStorageItem(STORAGE_KEYS.SETTINGS, settings);
+  public storeAndUpdateSettings(partialSettings: Partial<Settings>): void {
+    const updatedSettings: Settings = {
+      ...this._settingsSubject.getValue(),
+      ...partialSettings,
+    };
 
-    this._settingsSubject.next(settings);
+    this._storageService.setLocalStorageItem(
+      STORAGE_KEYS.SETTINGS,
+      updatedSettings,
+    );
+
+    this._settingsSubject.next(updatedSettings);
   }
 }
