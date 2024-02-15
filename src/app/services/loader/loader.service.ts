@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LoggerService } from '../logger/logger.service';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interface';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { LoggerService } from '../logger/logger.service';
 
 @Injectable({
   providedIn: 'root',

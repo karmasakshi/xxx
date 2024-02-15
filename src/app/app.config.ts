@@ -1,25 +1,24 @@
-import { ApplicationConfig, isDevMode } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideServiceWorker } from '@angular/service-worker';
 import { provideHttpClient } from '@angular/common/http';
-import { TranslocoHttpLoader } from './transloco-loader';
+import { ApplicationConfig, isDevMode } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideRouter } from '@angular/router';
+import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco } from '@ngneat/transloco';
-import { DEFAULT_LANGUAGE } from './constants/default-language.constant';
-import { AVAILABLE_LANGUAGES } from './constants/available-languages.constant';
-import { Language } from './interfaces/language.interface';
+import { AVAILABLE_LANGUAGES } from '@xxx/constants/available-languages.constant';
+import { DEFAULT_LANGUAGE } from '@xxx/constants/default-language.constant';
+import { Language } from '@xxx/interfaces/language.interface';
+import { routes } from './app.routes';
+import { TranslocoHttpLoader } from './transloco-loader';
 
-export const appConfig: ApplicationConfig = {
+export const applicationConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideHttpClient(),
     provideAnimationsAsync(),
+    provideRouter(routes),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',
     }),
-    provideHttpClient(),
     provideTransloco({
       config: {
         availableLangs: AVAILABLE_LANGUAGES.map(
