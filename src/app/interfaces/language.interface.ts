@@ -1,5 +1,5 @@
 export interface Language {
-  dir: 'ltr' | 'rtl';
+  directionality: 'ltr' | 'rtl';
   name: string;
   value: string;
 }

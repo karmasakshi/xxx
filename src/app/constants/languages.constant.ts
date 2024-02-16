@@ -2,12 +2,12 @@ import { Language } from '@xxx/interfaces/language.interface';
 
 export const LANGUAGES: Language[] = [
   {
-    dir: 'ltr',
+    directionality: 'ltr',
     name: 'English',
     value: 'en',
   },
   {
-    dir: 'rtl',
+    directionality: 'rtl',
     name: 'Arabic',
     value: 'ar',
   },
