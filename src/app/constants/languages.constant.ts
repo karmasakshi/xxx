@@ -1,6 +1,6 @@
 import { Language } from '@xxx/interfaces/language.interface';
 
-export const AVAILABLE_LANGUAGES: Language[] = [
+export const LANGUAGES: Language[] = [
   {
     dir: 'ltr',
     name: 'English',

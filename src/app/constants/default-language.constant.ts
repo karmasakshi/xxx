@@ -1,4 +1,4 @@
 import { Language } from '@xxx/interfaces/language.interface';
-import { AVAILABLE_LANGUAGES } from './available-languages.constant';
+import { LANGUAGES } from './languages.constant';
 
-export const DEFAULT_LANGUAGE: Language = AVAILABLE_LANGUAGES[0]!;
+export const DEFAULT_LANGUAGE: Language = LANGUAGES[0]!;
