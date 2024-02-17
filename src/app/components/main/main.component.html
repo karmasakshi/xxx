@@ -1,49 +1,53 @@
-<mat-sidenav-container style="height: 100%">
-  <mat-sidenav
-    #drawer
-    style="width: 240px"
-    fixedInViewport
-    [attr.role]="(isSmallViewport$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isSmallViewport$ | async) ? 'over' : 'side'"
-    [opened]="(isSmallViewport$ | async) === false"
-  >
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    @if (loaderConfiguration$ | async; as loaderConfiguration) {
-      <mat-progress-bar
-        class="xxx-loader"
-        color="primary"
-        aria-hidden="true"
-        [ngStyle]="{
-          visibility: loaderConfiguration.isVisible ? 'visible' : 'hidden'
-        }"
-        [mode]="loaderConfiguration.mode"
-        [value]="loaderConfiguration.value"
-        [bufferValue]="loaderConfiguration.bufferValue"
-      >
-      </mat-progress-bar>
-    }
-    <mat-toolbar>
-      @if (isSmallViewport$ | async) {
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
+<ng-container *transloco="let t; read: 'xxx-main'">
+  <mat-sidenav-container [dir]="directionality" style="height: 100%">
+    <mat-sidenav
+      #drawer
+      style="width: 240px"
+      fixedInViewport
+      [attr.role]="(isSmallViewport$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isSmallViewport$ | async) ? 'over' : 'side'"
+      [opened]="(isSmallViewport$ | async) === false"
+    >
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item href="#">Link 1</a>
+        <a mat-list-item href="#">Link 2</a>
+        <a mat-list-item href="#">Link 3</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      @if (loaderConfiguration$ | async; as loaderConfiguration) {
+        <mat-progress-bar
+          class="xxx-loader"
+          color="primary"
+          aria-hidden="true"
+          [ngStyle]="{
+            visibility: loaderConfiguration.isVisible ? 'visible' : 'hidden'
+          }"
+          [mode]="loaderConfiguration.mode"
+          [value]="loaderConfiguration.value"
+          [bufferValue]="loaderConfiguration.bufferValue"
         >
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
+        </mat-progress-bar>
       }
-      <span>xxx</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-    <p>main works!</p>
-    <router-outlet />
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <mat-toolbar>
+        @if (isSmallViewport$ | async) {
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+          >
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        }
+        <span>xxx</span>
+        <span style="flex: 1"></span>
+        <xxx-language-menu />
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <p>main works!</p>
+      <router-outlet />
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
