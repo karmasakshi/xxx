@@ -1,5 +1,11 @@
 {
+  "xxx-home-page": {},
   "xxx-language-menu": {
     "language-menu": "Language Menu AR"
+  },
+  "xxx-main": {},
+  "alerts": {
+    "reload-to-apply": "Reload to apply new settings AR.",
+    "reload": "RELOAD AR"
   }
 }
