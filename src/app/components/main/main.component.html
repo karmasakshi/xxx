@@ -30,11 +30,11 @@
         >
         </mat-progress-bar>
       }
-      <mat-toolbar role="heading">
+      <mat-toolbar style="background: inherit" role="heading">
         <button
           type="button"
-          [matTooltip]="t('menu')"
-          [attr.aria-label]="t('menu')"
+          [matTooltip]="t('navigation-menu')"
+          [attr.aria-label]="t('navigation-menu')"
           mat-icon-button
           (click)="sidenav.toggle()"
         >

@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
+import { APP_NAME } from '@xxx/constants/app-name.constant';
 import { Language } from '@xxx/interfaces/language.interface';
 import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interface';
 import { LoaderService } from '@xxx/services/loader/loader.service';
@@ -17,7 +18,6 @@ import { LoggerService } from '@xxx/services/logger/logger.service';
 import { SettingsService } from '@xxx/services/settings/settings.service';
 import { Observable } from 'rxjs';
 import { LanguageMenuComponent } from '../language-menu/language-menu.component';
-import { APP_NAME } from '@xxx/constants/app-name.constant';
 
 @Component({
   selector: 'xxx-main',
