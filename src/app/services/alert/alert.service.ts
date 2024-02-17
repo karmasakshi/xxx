@@ -6,16 +6,21 @@ import {
   TextOnlySnackBar,
 } from '@angular/material/snack-bar';
 import { SettingsService } from '../settings/settings.service';
+import { Language } from '@xxx/interfaces/language.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlertService {
+  private readonly _directionality: Language['directionality'];
   public constructor(
     private readonly _matSnackBar: MatSnackBar,
     private readonly _settingsService: SettingsService,
     private readonly _loggerService: LoggerService,
   ) {
+    this._directionality =
+      this._settingsService.settings.language.directionality;
+
     this._loggerService.logServiceInitialization('AlertService');
   }
 
@@ -26,8 +31,8 @@ export class AlertService {
   ): void {
     const matSnackBarRef: MatSnackBarRef<TextOnlySnackBar> =
       this._matSnackBar.open(message, action, {
-        direction: this._settingsService.languageDirectionality,
-        duration: 5000,
+        direction: this._directionality,
+        duration: 9000,
       });
 
     if (actionFunction) {

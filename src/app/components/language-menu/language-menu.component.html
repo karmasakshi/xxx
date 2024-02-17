@@ -9,18 +9,16 @@
     <mat-icon>language</mat-icon>
   </button>
   <mat-menu #languageMenu="matMenu">
-    @if (settings$ | async; as settings) {
-      @for (language of languages; track language.value) {
-        <button
-          [disabled]="settings.language.value === language.value"
-          (click)="setLanguage(language)"
-          type="button"
-          mat-menu-item
-        >
-          <mat-icon>translate</mat-icon>
-          <span>{{ language.name }}</span>
-        </button>
-      }
+    @for (language of languages; track language.value) {
+      <button
+        [disabled]="settings.language.value === language.value"
+        (click)="setLanguage(language)"
+        type="button"
+        mat-menu-item
+      >
+        <mat-icon>translate</mat-icon>
+        <span>{{ language.name }}</span>
+      </button>
     }
   </mat-menu>
 </ng-container>

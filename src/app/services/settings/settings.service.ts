@@ -6,7 +6,6 @@ import { Settings } from '@xxx/interfaces/settings.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LoggerService } from '../logger/logger.service';
 import { StorageService } from '../storage/storage.service';
-import { Language } from '@xxx/interfaces/language.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -32,30 +31,25 @@ export class SettingsService {
       ) || this._defaultSettings,
     );
 
-    this._translocoService.setActiveLang(
-      this._settingsSubject.getValue().language.value,
-    );
+    this._translocoService.setActiveLang(this.settings.language.value);
 
     this.settings$ = this._settingsSubject.asObservable();
 
     this._loggerService.logServiceInitialization('SettingsService');
   }
 
-  public get languageDirectionality(): Language['directionality'] {
-    return this._settingsSubject.getValue().language.directionality;
+  public get settings(): Settings {
+    return this._settingsSubject.getValue();
   }
 
   public storeAndUpdateSettings(partialSettings: Partial<Settings>): void {
-    const updatedSettings: Settings = {
-      ...this._settingsSubject.getValue(),
+    const settings: Settings = {
+      ...this.settings,
       ...partialSettings,
     };
 
-    this._storageService.setLocalStorageItem(
-      STORAGE_KEYS.SETTINGS,
-      updatedSettings,
-    );
+    this._storageService.setLocalStorageItem(STORAGE_KEYS.SETTINGS, settings);
 
-    this._settingsSubject.next(updatedSettings);
+    this._settingsSubject.next(settings);
   }
 }
