@@ -3,7 +3,9 @@
   "xxx-language-menu": {
     "language-menu": "Language Menu"
   },
-  "xxx-main": {},
+  "xxx-main": {
+    "menu": "Menu"
+  },
   "alerts": {
     "reload-to-apply": "Reload to apply new settings.",
     "reload": "RELOAD"

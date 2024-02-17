@@ -3,7 +3,9 @@
   "xxx-language-menu": {
     "language-menu": "Language Menu AR"
   },
-  "xxx-main": {},
+  "xxx-main": {
+    "menu": "Menu AR"
+  },
   "alerts": {
     "reload-to-apply": "Reload to apply new settings AR.",
     "reload": "RELOAD AR"

@@ -1,14 +1,14 @@
 <ng-container *transloco="let t; read: 'xxx-main'">
   <mat-sidenav-container [dir]="directionality" style="height: 100%">
     <mat-sidenav
-      #drawer
+      #sidenav
       style="width: 240px"
       fixedInViewport
-      [attr.role]="(isSmallViewport$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isSmallViewport$ | async) ? 'over' : 'side'"
-      [opened]="(isSmallViewport$ | async) === false"
+      [attr.role]="isSmallViewport ? 'dialog' : 'navigation'"
+      [mode]="isSmallViewport ? 'over' : 'side'"
+      [opened]="!isSmallViewport"
     >
-      <mat-toolbar>Menu</mat-toolbar>
+      <mat-toolbar style="background: inherit">{{ appName }}</mat-toolbar>
       <mat-nav-list>
         <a mat-list-item href="#">Link 1</a>
         <a mat-list-item href="#">Link 2</a>
@@ -30,23 +30,19 @@
         >
         </mat-progress-bar>
       }
-      <mat-toolbar>
-        @if (isSmallViewport$ | async) {
-          <button
-            type="button"
-            aria-label="Toggle sidenav"
-            mat-icon-button
-            (click)="drawer.toggle()"
-          >
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-          </button>
-        }
-        <span>xxx</span>
+      <mat-toolbar role="heading">
+        <button
+          type="button"
+          [matTooltip]="t('menu')"
+          [attr.aria-label]="t('menu')"
+          mat-icon-button
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
         <span style="flex: 1"></span>
         <xxx-language-menu />
       </mat-toolbar>
-      <!-- Add Content Here -->
-      <p>main works!</p>
       <router-outlet />
     </mat-sidenav-content>
   </mat-sidenav-container>
