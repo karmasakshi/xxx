@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService } from '@xxx/services/logger/logger.service';
 
 @Component({
   selector: 'xxx-home-page',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  public constructor(private readonly _loggerService: LoggerService) {
+    this._loggerService.logComponentInitialization('HomePageComponent');
+  }
+}
