@@ -9,10 +9,17 @@
       [opened]="!isSmallViewport"
     >
       <mat-toolbar style="background: inherit">{{ appName }}</mat-toolbar>
-      <mat-nav-list>
-        <a mat-list-item href="#">Link 1</a>
-        <a mat-list-item href="#">Link 2</a>
-        <a mat-list-item href="#">Link 3</a>
+      <mat-nav-list [attr.aria-label]="t('navigation-menu')">
+        @for (page of pages; track page.url) {
+          <a
+            [activated]="activeUrl === page.url"
+            mat-list-item
+            [routerLink]="page.url"
+          >
+            <mat-icon matListItemIcon>{{ page.icon }}</mat-icon>
+            {{ page.name }}
+          </a>
+        }
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -31,19 +38,43 @@
         </mat-progress-bar>
       }
       <mat-toolbar style="background: inherit" role="heading">
-        <button
-          type="button"
-          [matTooltip]="t('navigation-menu')"
-          [attr.aria-label]="t('navigation-menu')"
-          mat-icon-button
-          (click)="sidenav.toggle()"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span style="flex: 1"></span>
+        @if (!isSmallViewport) {
+          <button
+            type="button"
+            [matTooltip]="t('navigation-menu')"
+            [attr.aria-label]="t('navigation-menu')"
+            mat-icon-button
+            (click)="sidenav.toggle()"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+        }
+        <div style="flex: 1"></div>
         <xxx-language-menu />
       </mat-toolbar>
-      <router-outlet />
+      <mat-tab-nav-panel #tabPanel>
+        <router-outlet />
+      </mat-tab-nav-panel>
+      @if (isSmallViewport) {
+        <nav
+          backgroundColor="primary"
+          [attr.aria-label]="t('navigation-menu')"
+          mat-tab-nav-bar
+          [tabPanel]="tabPanel"
+          class="xxx-bottom-navigation"
+        >
+          @for (page of pages; track page.url) {
+            <a
+              [active]="activeUrl === page.url"
+              [routerLink]="page.url"
+              mat-tab-link
+            >
+              <mat-icon>{{ page.icon }}</mat-icon
+              >&nbsp;{{ page.name }}
+            </a>
+          }
+        </nav>
+      }
     </mat-sidenav-content>
   </mat-sidenav-container>
 </ng-container>
