@@ -1,4 +1,5 @@
 {
+  "xxx-help-page": {},
   "xxx-home-page": {},
   "xxx-language-menu": {
     "language-menu": "Language Menu AR"
@@ -8,6 +9,10 @@
   },
   "alerts": {
     "reload-to-apply": "Reload to apply new settings AR.",
-    "reload": "RELOAD AR"
+    "reload-cta": "RELOAD AR"
+  },
+  "pages": {
+    "home": "Home AR",
+    "help": "Help AR"
   }
 }

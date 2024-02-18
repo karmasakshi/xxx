@@ -48,7 +48,7 @@ export class LanguageMenuComponent {
 
     this._alertService.showAlert(
       this._translocoService.translate('alerts.reload-to-apply'),
-      this._translocoService.translate('alerts.reload'),
+      this._translocoService.translate('alerts.reload-cta'),
       (): void => {
         location.reload();
       },

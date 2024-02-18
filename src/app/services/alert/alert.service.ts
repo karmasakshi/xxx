@@ -24,20 +24,16 @@ export class AlertService {
     this._loggerService.logServiceInitialization('AlertService');
   }
 
-  public showAlert(
-    message: string,
-    action?: string,
-    actionFunction?: () => void,
-  ): void {
+  public showAlert(message: string, cta?: string, action?: () => void): void {
     const matSnackBarRef: MatSnackBarRef<TextOnlySnackBar> =
-      this._matSnackBar.open(message, action, {
+      this._matSnackBar.open(message, cta, {
         direction: this._directionality,
         duration: 9000,
       });
 
-    if (actionFunction) {
+    if (action) {
       matSnackBarRef.onAction().subscribe(() => {
-        actionFunction();
+        action();
       });
     }
   }
