@@ -23,13 +23,13 @@ export class StorageService {
   }
 
   public getLocalStorageItem<T>(key: string): null | T {
-    let value = null;
+    let value: null | T = null;
 
     const serializedValue = localStorage.getItem(this._prefix + '-' + key);
 
     if (serializedValue) {
       try {
-        value = JSON.parse(serializedValue);
+        value = JSON.parse(serializedValue) as T;
       } catch (error) {
         this._loggerService.logUnknownError(error);
       }
@@ -39,13 +39,13 @@ export class StorageService {
   }
 
   public getSessionStorageItem<T>(key: string): null | T {
-    let value = null;
+    let value: null | T = null;
 
     const serializedValue = sessionStorage.getItem(this._prefix + '-' + key);
 
     if (serializedValue) {
       try {
-        value = JSON.parse(serializedValue);
+        value = JSON.parse(serializedValue) as T;
       } catch (error) {
         this._loggerService.logUnknownError(error);
       }

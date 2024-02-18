@@ -28,7 +28,7 @@ export class SettingsService {
     this._settingsSubject = new BehaviorSubject<Settings>(
       this._storageService.getLocalStorageItem<Settings>(
         STORAGE_KEYS.SETTINGS,
-      ) || this._defaultSettings,
+      ) ?? this._defaultSettings,
     );
 
     this._translocoService.setActiveLang(this.settings.language.value);

@@ -27,8 +27,6 @@ import { Observable, Subscription, filter, take } from 'rxjs';
 import { LanguageMenuComponent } from '../language-menu/language-menu.component';
 
 @Component({
-  selector: 'xxx-main',
-  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,
@@ -43,8 +41,10 @@ import { LanguageMenuComponent } from '../language-menu/language-menu.component'
     TranslocoModule,
     LanguageMenuComponent,
   ],
-  templateUrl: './main.component.html',
+  selector: 'xxx-main',
+  standalone: true,
   styleUrl: './main.component.scss',
+  templateUrl: './main.component.html',
 })
 export class MainComponent implements OnInit, OnDestroy {
   public activeUrl: undefined | Page['url'];
@@ -100,9 +100,9 @@ export class MainComponent implements OnInit, OnDestroy {
     this._translocoService
       .selectTranslateObject('pages')
       .pipe(take(1))
-      .subscribe((translations: { [key: string]: string }): void => {
+      .subscribe((translations: Record<string, string>): void => {
         this.pages.forEach((page: Page): void => {
-          page.name = translations[page.name] || page.name;
+          page.name = translations[page.name] ?? page.name;
         });
       });
 

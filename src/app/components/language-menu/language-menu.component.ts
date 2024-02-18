@@ -13,8 +13,6 @@ import { LoggerService } from '@xxx/services/logger/logger.service';
 import { SettingsService } from '@xxx/services/settings/settings.service';
 
 @Component({
-  selector: 'xxx-language-menu',
-  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,
@@ -23,8 +21,10 @@ import { SettingsService } from '@xxx/services/settings/settings.service';
     MatTooltipModule,
     TranslocoModule,
   ],
-  templateUrl: './language-menu.component.html',
+  selector: 'xxx-language-menu',
+  standalone: true,
   styleUrl: './language-menu.component.scss',
+  templateUrl: './language-menu.component.html',
 })
 export class LanguageMenuComponent {
   public languages: Language[];
