@@ -1,0 +1,18 @@
+{
+  "xxx-help-page": {},
+  "xxx-home-page": {},
+  "xxx-language-menu": {
+    "language-menu": "Language Menu"
+  },
+  "xxx-main": {
+    "navigation-menu": "Navigation Menu"
+  },
+  "alerts": {
+    "reload-to-apply": "Reload to apply new settings.",
+    "reload-cta": "RELOAD"
+  },
+  "pages": {
+    "home": "Home",
+    "help": "Help"
+  }
+}

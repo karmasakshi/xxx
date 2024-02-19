@@ -1,0 +1,18 @@
+{
+  "xxx-help-page": {},
+  "xxx-home-page": {},
+  "xxx-language-menu": {
+    "language-menu": "Language Menu AR"
+  },
+  "xxx-main": {
+    "navigation-menu": "Navigation Menu AR"
+  },
+  "alerts": {
+    "reload-to-apply": "Reload to apply new settings AR.",
+    "reload-cta": "RELOAD AR"
+  },
+  "pages": {
+    "home": "Home AR",
+    "help": "Help AR"
+  }
+}
