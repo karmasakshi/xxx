@@ -2,7 +2,7 @@
   "name": "xxx",
   "short_name": "xxx",
   "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "background_color": "white",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
