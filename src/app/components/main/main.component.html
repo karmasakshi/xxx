@@ -1,5 +1,5 @@
 <ng-container *transloco="let t; read: 'xxx-main'">
-  <mat-sidenav-container [dir]="directionality" style="height: 100%">
+  <mat-sidenav-container style="height: 100%">
     <mat-sidenav
       #sidenav
       style="width: 240px"
@@ -37,7 +37,7 @@
         >
         </mat-progress-bar>
       }
-      <mat-toolbar style="background: inherit" role="heading">
+      <mat-toolbar class="xxx-toolbar" role="heading">
         @if (!isSmallViewport) {
           <button
             type="button"

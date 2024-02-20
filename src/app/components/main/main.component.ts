@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -17,7 +17,6 @@ import {
 } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { APP_NAME } from '@xxx/constants/app-name.constant';
-import { Language } from '@xxx/interfaces/language.interface';
 import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interface';
 import { Page } from '@xxx/interfaces/page.interface';
 import { LoaderService } from '@xxx/services/loader/loader.service';
@@ -49,7 +48,6 @@ import { LanguageMenuComponent } from '../language-menu/language-menu.component'
 export class MainComponent implements OnInit, OnDestroy {
   public activeUrl: undefined | Page['url'];
   public appName: string;
-  public directionality: Language['directionality'];
   public isSmallViewport: boolean;
   public loaderConfiguration$: Observable<LoaderConfiguration>;
   public pages: Page[];
@@ -57,6 +55,7 @@ export class MainComponent implements OnInit, OnDestroy {
   private _routerSubscription: Subscription;
 
   public constructor(
+    private readonly _renderer2: Renderer2,
     private readonly _breakpointObserver: BreakpointObserver,
     private readonly _router: Router,
     private readonly _translocoService: TranslocoService,
@@ -68,8 +67,11 @@ export class MainComponent implements OnInit, OnDestroy {
 
     this.appName = APP_NAME;
 
-    this.directionality =
-      this._settingsService.settings.language.directionality;
+    this._renderer2.setAttribute(
+      document.body,
+      'dir',
+      this._settingsService.settings.language.directionality,
+    );
 
     this.isSmallViewport = this._breakpointObserver.isMatched([
       Breakpoints.Handset,
