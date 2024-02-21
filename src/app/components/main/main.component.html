@@ -3,7 +3,6 @@
     <mat-sidenav
       #sidenav
       style="width: 240px"
-      fixedInViewport
       [attr.role]="isSmallViewport ? 'dialog' : 'navigation'"
       [mode]="isSmallViewport ? 'over' : 'side'"
       [opened]="!isSmallViewport"
@@ -23,36 +22,43 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      @if (loaderConfiguration$ | async; as loaderConfiguration) {
-        <mat-progress-bar
-          class="xxx-loader"
-          color="primary"
-          aria-hidden="true"
-          [ngStyle]="{
-            visibility: loaderConfiguration.isVisible ? 'visible' : 'hidden'
-          }"
-          [mode]="loaderConfiguration.mode"
-          [value]="loaderConfiguration.value"
-          [bufferValue]="loaderConfiguration.bufferValue"
-        >
-        </mat-progress-bar>
-      }
-      <mat-toolbar class="xxx-toolbar" role="heading">
-        @if (!isSmallViewport) {
-          <button
-            type="button"
-            [matTooltip]="t('navigation-menu')"
-            [attr.aria-label]="t('navigation-menu')"
-            mat-icon-button
-            (click)="sidenav.toggle()"
+      <mat-toolbar
+        style="
+          background: inherit;
+          padding: 0 calc(env(safe-area-inset-right) + 16px) 0
+            calc(env(safe-area-inset-left) + 16px);
+        "
+        role="heading"
+      >
+        @if (loaderConfiguration$ | async; as loaderConfiguration) {
+          <mat-progress-bar
+            style="position: absolute; top: 0; left: 0; right: 0"
+            color="primary"
+            aria-hidden="true"
+            [ngStyle]="{
+              visibility: loaderConfiguration.isVisible ? 'visible' : 'hidden'
+            }"
+            [mode]="loaderConfiguration.mode"
+            [value]="loaderConfiguration.value"
+            [bufferValue]="loaderConfiguration.bufferValue"
           >
-            <mat-icon>menu</mat-icon>
-          </button>
+          </mat-progress-bar>
         }
+        <!-- @if (!isSmallViewport) { -->
+        <button
+          type="button"
+          [matTooltip]="t('navigation-menu')"
+          [attr.aria-label]="t('navigation-menu')"
+          mat-icon-button
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- } -->
         <div style="flex: 1"></div>
         <xxx-language-menu />
       </mat-toolbar>
-      <mat-tab-nav-panel #tabPanel>
+      <mat-tab-nav-panel #tabNavPanel>
         <router-outlet />
       </mat-tab-nav-panel>
       @if (isSmallViewport) {
@@ -60,8 +66,8 @@
           backgroundColor="primary"
           [attr.aria-label]="t('navigation-menu')"
           mat-tab-nav-bar
-          [tabPanel]="tabPanel"
-          class="xxx-bottom-navigation"
+          [tabPanel]="tabNavPanel"
+          style="bottom: 0; position: fixed; left: 0; right: 0"
         >
           @for (page of pages; track page.url) {
             <a
