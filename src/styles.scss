@@ -3,7 +3,7 @@ body {
   font-family: 'Noto Sans', sans-serif;
 
   @media (prefers-color-scheme: light) {
-    background-color: white;
+    background-color: #fafafa;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -60,10 +60,6 @@ body {
 
 .mat-mdc-tab-link-container {
   padding-bottom: env(safe-area-inset-bottom);
-}
-
-.mat-drawer-container {
-  background-color: white !important;
 }
 
 .mdc-button__label {
