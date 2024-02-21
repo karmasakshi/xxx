@@ -15,10 +15,12 @@ import {
   RouterEvent,
   RouterModule,
 } from '@angular/router';
+import { SwUpdate, VersionEvent } from '@angular/service-worker';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { APP_NAME } from '@xxx/constants/app-name.constant';
 import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interface';
 import { Page } from '@xxx/interfaces/page.interface';
+import { AlertService } from '@xxx/services/alert/alert.service';
 import { LoaderService } from '@xxx/services/loader/loader.service';
 import { LoggerService } from '@xxx/services/logger/logger.service';
 import { SettingsService } from '@xxx/services/settings/settings.service';
@@ -53,6 +55,7 @@ export class MainComponent implements OnInit, OnDestroy {
   public pages: Page[];
 
   private _routerSubscription: Subscription;
+  private _swUpdateSubscription: Subscription;
 
   public constructor(
     private readonly _renderer2: Renderer2,
@@ -62,6 +65,8 @@ export class MainComponent implements OnInit, OnDestroy {
     private readonly _loaderService: LoaderService,
     private readonly _loggerService: LoggerService,
     private readonly _settingsService: SettingsService,
+    private readonly _swUpdate: SwUpdate,
+    private readonly _alertService: AlertService,
   ) {
     this.activeUrl = undefined;
 
@@ -94,6 +99,7 @@ export class MainComponent implements OnInit, OnDestroy {
     ];
 
     this._routerSubscription = Subscription.EMPTY;
+    this._swUpdateSubscription = Subscription.EMPTY;
 
     this._loggerService.logComponentInitialization('MainComponent');
   }
@@ -119,9 +125,36 @@ export class MainComponent implements OnInit, OnDestroy {
       .subscribe((navigationEnd: NavigationEnd): void => {
         this.activeUrl = navigationEnd.url;
       });
+
+    if (this._swUpdate.isEnabled) {
+      this._swUpdateSubscription = this._swUpdate.versionUpdates.subscribe(
+        (versionEvent: VersionEvent): void => {
+          switch (versionEvent.type) {
+            case 'VERSION_DETECTED':
+              this._alertService.showAlert(
+                this._translocoService.translate(
+                  'alerts.downloading-new-version',
+                ),
+                this._translocoService.translate('alerts.ok-cta'),
+              );
+              break;
+            case 'VERSION_READY':
+              this._alertService.showAlert(
+                this._translocoService.translate('alerts.reload-to-update'),
+                this._translocoService.translate('alerts.reload-cta'),
+                (): void => {
+                  location.reload();
+                },
+              );
+              break;
+          }
+        },
+      );
+    }
   }
 
   public ngOnDestroy(): void {
     this._routerSubscription.unsubscribe();
+    this._swUpdateSubscription.unsubscribe();
   }
 }
