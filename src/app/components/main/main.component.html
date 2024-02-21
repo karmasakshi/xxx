@@ -1,8 +1,17 @@
 <ng-container *transloco="let t; read: 'xxx-main'">
-  <mat-sidenav-container style="height: 100%">
+  <mat-sidenav-container
+    style="
+      height: calc(100vh - env(safe-area-inset-top));
+      margin-top: env(safe-area-inset-top);
+    "
+  >
     <mat-sidenav
       #sidenav
-      style="width: 240px"
+      fixedInViewport
+      style="
+        width: 240px;
+        padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
+      "
       [attr.role]="isSmallViewport ? 'dialog' : 'navigation'"
       [mode]="isSmallViewport ? 'over' : 'side'"
       [opened]="!isSmallViewport"
@@ -63,7 +72,6 @@
       </mat-tab-nav-panel>
       @if (isSmallViewport) {
         <nav
-          backgroundColor="primary"
           [attr.aria-label]="t('navigation-menu')"
           mat-tab-nav-bar
           [tabPanel]="tabNavPanel"
