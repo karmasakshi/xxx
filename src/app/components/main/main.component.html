@@ -31,6 +31,20 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
+      @if (loaderConfiguration$ | async; as loaderConfiguration) {
+        <mat-progress-bar
+          style="position: absolute; top: 0; left: 0; right: 0"
+          color="primary"
+          aria-hidden="true"
+          [ngStyle]="{
+            visibility: loaderConfiguration.isVisible ? 'visible' : 'hidden'
+          }"
+          [mode]="loaderConfiguration.mode"
+          [value]="loaderConfiguration.value"
+          [bufferValue]="loaderConfiguration.bufferValue"
+        >
+        </mat-progress-bar>
+      }
       <mat-toolbar
         style="
           background: inherit;
@@ -39,31 +53,17 @@
         "
         role="heading"
       >
-        @if (loaderConfiguration$ | async; as loaderConfiguration) {
-          <mat-progress-bar
-            style="position: absolute; top: 0; left: 0; right: 0"
-            color="primary"
-            aria-hidden="true"
-            [ngStyle]="{
-              visibility: loaderConfiguration.isVisible ? 'visible' : 'hidden'
-            }"
-            [mode]="loaderConfiguration.mode"
-            [value]="loaderConfiguration.value"
-            [bufferValue]="loaderConfiguration.bufferValue"
+        @if (!isSmallViewport) {
+          <button
+            type="button"
+            [matTooltip]="t('navigation-menu')"
+            [attr.aria-label]="t('navigation-menu')"
+            mat-icon-button
+            (click)="sidenav.toggle()"
           >
-          </mat-progress-bar>
+            <mat-icon>menu</mat-icon>
+          </button>
         }
-        <!-- @if (!isSmallViewport) { -->
-        <button
-          type="button"
-          [matTooltip]="t('navigation-menu')"
-          [attr.aria-label]="t('navigation-menu')"
-          mat-icon-button
-          (click)="sidenav.toggle()"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
-        <!-- } -->
         <div style="flex: 1"></div>
         <xxx-language-menu />
       </mat-toolbar>
