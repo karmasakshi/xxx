@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1708796896607,
+  "timestamp": 1708798722349,
   "index": "/xxx/index.html",
   "assetGroups": [
     {
@@ -30,38 +30,28 @@
         "ignoreVary": true
       },
       "urls": [
+        "/xxx/assets/apple-touch-icon.png",
         "/xxx/assets/i18n/ar.json",
         "/xxx/assets/i18n/en.json",
-        "/xxx/assets/icons/icon-128x128.png",
-        "/xxx/assets/icons/icon-144x144.png",
-        "/xxx/assets/icons/icon-152x152.png",
         "/xxx/assets/icons/icon-192x192.png",
-        "/xxx/assets/icons/icon-384x384.png",
-        "/xxx/assets/icons/icon-512x512.png",
-        "/xxx/assets/icons/icon-72x72.png",
-        "/xxx/assets/icons/icon-96x96.png"
+        "/xxx/assets/icons/icon-512x512.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
+    "/xxx/assets/apple-touch-icon.png": "bf04bea3063fc025d4301aa5a5516b15e2fd1744",
     "/xxx/assets/i18n/ar.json": "1c73290ea619809ffd4961d9f762e478ad059503",
     "/xxx/assets/i18n/en.json": "d5167cd92ce3ad4e066abb5f76bc5138e39489e8",
-    "/xxx/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
-    "/xxx/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
-    "/xxx/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
     "/xxx/assets/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
-    "/xxx/assets/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
     "/xxx/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
-    "/xxx/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
-    "/xxx/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "/xxx/chunk-QJD3L4LA.js": "5664cad53febcf90623f5acfaf328ae6fca6f06c",
     "/xxx/chunk-VLNXVYRQ.js": "6698a49d53570f40bb5aa7dacedbfd8f42fabf91",
     "/xxx/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/xxx/index.html": "89f75868313129d41bd27bc4b1f4f3c8aed5eddb",
+    "/xxx/index.html": "2f3f6c3aeb745ed7eacdb7a1ad5feaeb02827017",
     "/xxx/main-3P4M5HRD.js": "4dc779dcc4bafacdadb083271f08dd4e6aa2e292",
-    "/xxx/manifest.json": "8a95827d1206e498a6ccb9aa6620aac1d2c01c9d",
+    "/xxx/manifest.json": "cd33f947c53fbabe59345a74e2e70f439816bd24",
     "/xxx/polyfills-RT5I6R6G.js": "fe9f024576f21ff6314cf8f8332cde58b9a12416",
     "/xxx/styles-EHNCSVXI.css": "e45b121f011006988353a1730c5c4ac7a535528f"
   },
