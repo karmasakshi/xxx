@@ -1,5 +1,6 @@
 <ng-container *transloco="let t; read: 'xxx-main'">
   <mat-sidenav-container
+    [dir]="directionality"
     style="
       height: calc(100vh - env(safe-area-inset-top));
       margin-top: env(safe-area-inset-top);

@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -18,6 +18,7 @@ import {
 import { SwUpdate, VersionEvent } from '@angular/service-worker';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { APP_NAME } from '@xxx/constants/app-name.constant';
+import { Language } from '@xxx/interfaces/language.interface';
 import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interface';
 import { Page } from '@xxx/interfaces/page.interface';
 import { AlertService } from '@xxx/services/alert/alert.service';
@@ -50,6 +51,7 @@ import { LanguageMenuComponent } from '../language-menu/language-menu.component'
 export class MainComponent implements OnInit, OnDestroy {
   public activeUrl: undefined | Page['url'];
   public appName: string;
+  public directionality: Language['directionality'];
   public isSmallViewport: boolean;
   public loaderConfiguration$: Observable<LoaderConfiguration>;
   public pages: Page[];
@@ -58,25 +60,21 @@ export class MainComponent implements OnInit, OnDestroy {
   private _swUpdateSubscription: Subscription;
 
   public constructor(
-    private readonly _renderer2: Renderer2,
     private readonly _breakpointObserver: BreakpointObserver,
     private readonly _router: Router,
+    private readonly _swUpdate: SwUpdate,
     private readonly _translocoService: TranslocoService,
+    private readonly _alertService: AlertService,
     private readonly _loaderService: LoaderService,
     private readonly _loggerService: LoggerService,
     private readonly _settingsService: SettingsService,
-    private readonly _swUpdate: SwUpdate,
-    private readonly _alertService: AlertService,
   ) {
     this.activeUrl = undefined;
 
     this.appName = APP_NAME;
 
-    this._renderer2.setAttribute(
-      document.body,
-      'dir',
-      this._settingsService.settings.language.directionality,
-    );
+    this.directionality =
+      this._settingsService.settings.language.directionality;
 
     this.isSmallViewport = this._breakpointObserver.isMatched([
       Breakpoints.Handset,
@@ -99,6 +97,7 @@ export class MainComponent implements OnInit, OnDestroy {
     ];
 
     this._routerSubscription = Subscription.EMPTY;
+
     this._swUpdateSubscription = Subscription.EMPTY;
 
     this._loggerService.logComponentInitialization('MainComponent');
