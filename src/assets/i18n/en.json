@@ -10,7 +10,7 @@
   "alerts": {
     "downloading-new-version": "Downloading new version...",
     "reload-to-update": "Reload to update.",
-    "ok-cta": "OK AR",
+    "ok-cta": "OK",
     "reload-cta": "RELOAD"
   },
   "pages": {
