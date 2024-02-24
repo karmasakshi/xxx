@@ -4,8 +4,7 @@
   "background_color": "white",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./?source=pwa",
-  "id": "xxx",
+  "start_url": "./",
   "icons": [
     {
       "src": "assets/icons/icon-192x192.png",
