@@ -1,14 +1,19 @@
 <ng-container *transloco="let t; read: 'xxx-main'">
-  <mat-sidenav-container style="height: 100%">
+  <mat-sidenav-container
+    [dir]="directionality"
+    style="height: 100vh; padding-top: env(safe-area-inset-top)"
+  >
     <mat-sidenav
       #sidenav
-      style="width: 240px"
-      fixedInViewport
+      style="
+        width: 240px;
+        padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
+      "
       [attr.role]="isSmallViewport ? 'dialog' : 'navigation'"
       [mode]="isSmallViewport ? 'over' : 'side'"
       [opened]="!isSmallViewport"
     >
-      <mat-toolbar style="background: inherit">{{ appName }}</mat-toolbar>
+      <mat-toolbar>{{ appName }}</mat-toolbar>
       <mat-nav-list [attr.aria-label]="t('navigation-menu')">
         @for (page of pages; track page.url) {
           <a
@@ -25,7 +30,7 @@
     <mat-sidenav-content>
       @if (loaderConfiguration$ | async; as loaderConfiguration) {
         <mat-progress-bar
-          class="xxx-loader"
+          style="position: absolute; top: 0; left: 0; right: 0"
           color="primary"
           aria-hidden="true"
           [ngStyle]="{
@@ -37,7 +42,13 @@
         >
         </mat-progress-bar>
       }
-      <mat-toolbar class="xxx-toolbar" role="heading">
+      <mat-toolbar
+        style="
+          padding: 0 calc(env(safe-area-inset-right) + 16px) 0
+            calc(env(safe-area-inset-left) + 16px);
+        "
+        role="heading"
+      >
         @if (!isSmallViewport) {
           <button
             type="button"
@@ -52,16 +63,21 @@
         <div style="flex: 1"></div>
         <xxx-language-menu />
       </mat-toolbar>
-      <mat-tab-nav-panel #tabPanel>
+      <mat-tab-nav-panel #tabNavPanel>
         <router-outlet />
       </mat-tab-nav-panel>
       @if (isSmallViewport) {
         <nav
-          backgroundColor="primary"
           [attr.aria-label]="t('navigation-menu')"
           mat-tab-nav-bar
-          [tabPanel]="tabPanel"
-          class="xxx-bottom-navigation"
+          [tabPanel]="tabNavPanel"
+          style="
+            bottom: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            padding-bottom: env(safe-area-inset-bottom);
+          "
         >
           @for (page of pages; track page.url) {
             <a

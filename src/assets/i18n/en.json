@@ -8,7 +8,9 @@
     "navigation-menu": "Navigation Menu"
   },
   "alerts": {
-    "reload-to-apply": "Reload to apply new settings.",
+    "downloading-new-version": "Downloading new version...",
+    "reload-to-update": "Reload to update.",
+    "ok-cta": "OK",
     "reload-cta": "RELOAD"
   },
   "pages": {

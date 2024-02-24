@@ -26,7 +26,7 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
-              "src/manifest.webmanifest",
+              "src/manifest.json",
               "src/robots.txt",
               "src/sitemap.xml"
             ],
@@ -85,7 +85,7 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
-              "src/manifest.webmanifest",
+              "src/manifest.json",
               "src/robots.txt",
               "src/sitemap.xml"
             ],
