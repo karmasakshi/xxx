@@ -1,14 +1,10 @@
 <ng-container *transloco="let t; read: 'xxx-main'">
   <mat-sidenav-container
     [dir]="directionality"
-    style="
-      height: calc(100vh - env(safe-area-inset-top));
-      margin-top: env(safe-area-inset-top);
-    "
+    style="height: 100vh; padding-top: env(safe-area-inset-top)"
   >
     <mat-sidenav
       #sidenav
-      fixedInViewport
       style="
         width: 240px;
         padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
