@@ -2,23 +2,7 @@ body {
   margin: 0;
   font-family: 'Noto Sans', sans-serif;
 
-  @media (prefers-color-scheme: light) {
-    background-color: #fafafa;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    background-color: black;
-  }
-
   .mat-sidenav-container {
-    @media (prefers-color-scheme: light) {
-      background-color: #fafafa;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      background-color: black;
-    }
-
     &[dir='ltr'] {
       .mat-sidenav {
         .mat-mdc-list-item {
