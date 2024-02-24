@@ -17,7 +17,7 @@
       [mode]="isSmallViewport ? 'over' : 'side'"
       [opened]="!isSmallViewport"
     >
-      <mat-toolbar style="background: inherit">{{ appName }}</mat-toolbar>
+      <mat-toolbar>{{ appName }}</mat-toolbar>
       <mat-nav-list [attr.aria-label]="t('navigation-menu')">
         @for (page of pages; track page.url) {
           <a
@@ -48,7 +48,6 @@
       }
       <mat-toolbar
         style="
-          background: inherit;
           padding: 0 calc(env(safe-area-inset-right) + 16px) 0
             calc(env(safe-area-inset-left) + 16px);
         "
@@ -76,7 +75,13 @@
           [attr.aria-label]="t('navigation-menu')"
           mat-tab-nav-bar
           [tabPanel]="tabNavPanel"
-          style="bottom: 0; position: fixed; left: 0; right: 0"
+          style="
+            bottom: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            padding-bottom: env(safe-area-inset-bottom);
+          "
         >
           @for (page of pages; track page.url) {
             <a
