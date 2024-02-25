@@ -25,7 +25,7 @@ import { AlertService } from '@xxx/services/alert/alert.service';
 import { LoaderService } from '@xxx/services/loader/loader.service';
 import { LoggerService } from '@xxx/services/logger/logger.service';
 import { SettingsService } from '@xxx/services/settings/settings.service';
-import { Observable, Subscription, filter, take } from 'rxjs';
+import { Observable, Subscription, filter } from 'rxjs';
 import { LanguageMenuComponent } from '../language-menu/language-menu.component';
 
 @Component({
@@ -86,12 +86,12 @@ export class MainComponent implements OnInit, OnDestroy {
     this.pages = [
       {
         icon: 'home',
-        name: 'home',
+        titleKey: 'home',
         url: '/',
       },
       {
         icon: 'help',
-        name: 'help',
+        titleKey: 'help',
         url: '/help',
       },
     ];
@@ -104,15 +104,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this._translocoService
-      .selectTranslateObject('pages')
-      .pipe(take(1))
-      .subscribe((translations: Record<string, string>): void => {
-        this.pages.forEach((page: Page): void => {
-          page.name = translations[page.name] ?? page.name;
-        });
-      });
-
     this._routerSubscription = this._router.events
       .pipe(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

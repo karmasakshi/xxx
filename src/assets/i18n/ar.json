@@ -5,6 +5,8 @@
     "language-menu": "Language Menu AR"
   },
   "xxx-main": {
+    "home": "Home AR",
+    "help": "Help AR",
     "navigation-menu": "Navigation Menu AR"
   },
   "alerts": {
@@ -12,9 +14,5 @@
     "reload-to-update": "Reload to update. AR",
     "ok-cta": "OK AR",
     "reload-cta": "RELOAD AR"
-  },
-  "pages": {
-    "home": "Home AR",
-    "help": "Help AR"
   }
 }
