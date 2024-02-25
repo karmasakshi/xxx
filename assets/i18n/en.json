@@ -5,6 +5,8 @@
     "language-menu": "Language Menu"
   },
   "xxx-main": {
+    "home": "Home",
+    "help": "Help",
     "navigation-menu": "Navigation Menu"
   },
   "alerts": {
@@ -12,9 +14,5 @@
     "reload-to-update": "Reload to update.",
     "ok-cta": "OK",
     "reload-cta": "RELOAD"
-  },
-  "pages": {
-    "home": "Home",
-    "help": "Help"
   }
 }
