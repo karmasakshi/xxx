@@ -17,7 +17,6 @@ import {
 } from '@angular/router';
 import { SwUpdate, VersionEvent } from '@angular/service-worker';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
-import { APP_NAME } from '@xxx/constants/app-name.constant';
 import { Language } from '@xxx/interfaces/language.interface';
 import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interface';
 import { Page } from '@xxx/interfaces/page.interface';
@@ -50,7 +49,6 @@ import { LanguageMenuComponent } from '../language-menu/language-menu.component'
 })
 export class MainComponent implements OnInit, OnDestroy {
   public activeUrl: undefined | Page['url'];
-  public appName: string;
   public directionality: Language['directionality'];
   public isSmallViewport: boolean;
   public loaderConfiguration$: Observable<LoaderConfiguration>;
@@ -70,8 +68,6 @@ export class MainComponent implements OnInit, OnDestroy {
     private readonly _settingsService: SettingsService,
   ) {
     this.activeUrl = undefined;
-
-    this.appName = APP_NAME;
 
     this.directionality =
       this._settingsService.settings.language.directionality;

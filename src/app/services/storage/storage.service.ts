@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { APP_NAME } from '@xxx/constants/app-name.constant';
 import { LoggerService } from '../logger/logger.service';
 
 @Injectable({
@@ -9,7 +8,7 @@ export class StorageService {
   private readonly _prefix: string;
 
   public constructor(private readonly _loggerService: LoggerService) {
-    this._prefix = APP_NAME.toLowerCase().replace(/\s/g, '-');
+    this._prefix = 'xxx';
 
     this._loggerService.logServiceInitialization('StorageService');
   }
