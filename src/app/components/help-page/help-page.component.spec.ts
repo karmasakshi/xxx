@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { getTranslocoModule } from 'src/app/transloco-testing.module';
 import { HelpPageComponent } from './help-page.component';
 
 describe('HelpPageComponent', () => {
@@ -8,7 +8,7 @@ describe('HelpPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HelpPageComponent],
+      imports: [getTranslocoModule(), HelpPageComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HelpPageComponent);

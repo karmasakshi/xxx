@@ -33,7 +33,8 @@
       "@xxx/interfaces/*": ["src/app/interfaces/*"],
       "@xxx/services/*": ["src/app/services/*"],
       "@xxx/types/*": ["src/app/types/*"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

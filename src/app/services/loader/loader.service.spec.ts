@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-
+import { getTranslocoModule } from 'src/app/transloco-testing.module';
 import { LoaderService } from './loader.service';
 
 describe('LoaderService', () => {
   let service: LoaderService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [getTranslocoModule()],
+    });
     service = TestBed.inject(LoaderService);
   });
 

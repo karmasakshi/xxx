@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-
+import { getTranslocoModule } from 'src/app/transloco-testing.module';
 import { AlertService } from './alert.service';
 
 describe('AlertService', () => {
   let service: AlertService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [getTranslocoModule()],
+    });
     service = TestBed.inject(AlertService);
   });
 
