@@ -2,23 +2,31 @@
 
 @include mat.core();
 
-$xxx-primary: mat.define-palette(mat.$indigo-palette);
-$xxx-accent: mat.define-palette(mat.$pink-palette);
-$xxx-warn: mat.define-palette(mat.$red-palette);
-
-$xxx-typography: mat.define-typography-config(
-  $font-family: '"Noto Sans", sans-serif',
-);
-
-$xxx-theme: mat.define-light-theme(
+$base: mat.define-light-theme(
   (
     color: (
-      primary: $xxx-primary,
-      accent: $xxx-accent,
-      warn: $xxx-warn,
+      primary: mat.define-palette(mat.$indigo-palette),
+      accent: mat.define-palette(mat.$pink-palette),
+      warn: mat.define-palette(mat.$red-palette),
     ),
-    typography: $xxx-typography,
+    typography:
+      mat.define-typography-config(
+        $font-family: '"Noto Sans", sans-serif',
+      ),
   )
 );
 
-@include mat.all-component-themes($xxx-theme);
+$dark: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$lime-palette),
+      accent: mat.define-palette(mat.$lime-palette),
+    ),
+  )
+);
+
+@include mat.all-component-themes($base);
+
+.dark {
+  @include mat.all-component-colors($dark);
+}
