@@ -1,5 +1,4 @@
 {
-  "xxx-help-page": {},
   "xxx-home-page": {},
   "xxx-language-menu": {
     "language-menu": "Language Menu"
@@ -7,9 +6,10 @@
   "xxx-main": {
     "app-name": "XXX",
     "home": "Home",
-    "help": "Help",
+    "settings": "Settings",
     "navigation-menu": "Navigation Menu"
   },
+  "xxx-settings-page": {},
   "alerts": {
     "downloading-new-version": "Downloading new version...",
     "reload-to-update": "Reload to update.",
