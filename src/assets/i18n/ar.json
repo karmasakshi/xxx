@@ -1,5 +1,4 @@
 {
-  "xxx-help-page": {},
   "xxx-home-page": {},
   "xxx-language-menu": {
     "language-menu": "Language Menu AR"
@@ -7,7 +6,6 @@
   "xxx-main": {
     "app-name": "XXX AR",
     "home": "Home AR",
-    "help": "Help AR",
     "settings": "Settings AR",
     "navigation-menu": "Navigation Menu AR"
   },

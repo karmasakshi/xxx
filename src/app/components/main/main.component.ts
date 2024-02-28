@@ -86,11 +86,6 @@ export class MainComponent implements OnInit, OnDestroy {
         url: '/',
       },
       {
-        icon: 'help',
-        titleKey: 'help',
-        url: '/help',
-      },
-      {
         icon: 'settings',
         titleKey: 'settings',
         url: '/settings',
