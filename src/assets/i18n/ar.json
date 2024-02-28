@@ -8,8 +8,10 @@
     "app-name": "XXX AR",
     "home": "Home AR",
     "help": "Help AR",
+    "settings": "Settings AR",
     "navigation-menu": "Navigation Menu AR"
   },
+  "xxx-settings-page": {},
   "alerts": {
     "downloading-new-version": "Downloading new version... AR",
     "reload-to-update": "Reload to update. AR",

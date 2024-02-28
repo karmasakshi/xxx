@@ -90,6 +90,11 @@ export class MainComponent implements OnInit, OnDestroy {
         titleKey: 'help',
         url: '/help',
       },
+      {
+        icon: 'settings',
+        titleKey: 'settings',
+        url: '/settings',
+      },
     ];
 
     this._routerSubscription = Subscription.EMPTY;
