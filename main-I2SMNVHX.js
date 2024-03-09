@@ -4,9 +4,9 @@ import{$ as it,$a as yi,$b as sc,A as Ct,Aa as It,Ab as lo,B as ui,Ba as Ws,Bb a
             calc(env(safe-area-inset-left) + 16px)`],["type","button","mat-icon-button","",3,"matTooltip","click"],[2,"flex","1"],["tabNavPanel",""],[2,"padding",`0 calc(env(safe-area-inset-right) + 16px)
               calc(env(safe-area-inset-bottom) + 120px)
               calc(env(safe-area-inset-left) + 16px)`],["mat-tab-nav-bar","","style",`
-            bottom: 0;
+            bottom: env(safe-area-inset-bottom);
             position: fixed;
             left: 0;
             right: 0;
             padding-bottom: env(safe-area-inset-bottom);
-          `,3,"tabPanel"],["mat-list-item","",3,"activated","routerLink"],["matListItemIcon",""],["color","primary","aria-hidden","true",2,"position","absolute","top","0","left","0","right","0",3,"ngStyle","mode","value","bufferValue"],["mat-tab-nav-bar","",2,"bottom","0","position","fixed","left","0","right","0","padding-bottom","env(safe-area-inset-bottom)",3,"tabPanel"],["mat-tab-link","",3,"active","routerLink"]],template:function(i,o){i&1&&lt(0,l_,23,12,"ng-container",0),i&2&&K("translocoRead","xxx-main")},dependencies:[ie,pc,fc,Xn,nr,yl,sr,ar,$l,Hl,Ul,ss,Gl,Yl,Kl,ms,hs,lr,im,vs,em,ys,om,nm,fr,pr,Md,Sa,Cd,Ue,Ve,Em]});let n=t;return n})();Pc(Dm,el).catch(n=>{console.error(n)});
+          `,3,"tabPanel"],["mat-list-item","",3,"activated","routerLink"],["matListItemIcon",""],["color","primary","aria-hidden","true",2,"position","absolute","top","0","left","0","right","0",3,"ngStyle","mode","value","bufferValue"],["mat-tab-nav-bar","",2,"bottom","env(safe-area-inset-bottom)","position","fixed","left","0","right","0","padding-bottom","env(safe-area-inset-bottom)",3,"tabPanel"],["mat-tab-link","",3,"active","routerLink"]],template:function(i,o){i&1&&lt(0,l_,23,12,"ng-container",0),i&2&&K("translocoRead","xxx-main")},dependencies:[ie,pc,fc,Xn,nr,yl,sr,ar,$l,Hl,Ul,ss,Gl,Yl,Kl,ms,hs,lr,im,vs,em,ys,om,nm,fr,pr,Md,Sa,Cd,Ue,Ve,Em]});let n=t;return n})();Pc(Dm,el).catch(n=>{console.error(n)});
