@@ -49,10 +49,6 @@ body {
   }
 }
 
-.mat-mdc-button {
-  letter-spacing: unset !important;
-}
-
 .mat-mdc-snack-bar-container {
   margin: calc(env(safe-area-inset-top) + 8px)
     calc(env(safe-area-inset-right) + 8px)
