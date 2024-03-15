@@ -44,7 +44,9 @@ export class LanguageMenuComponent {
   }
 
   public setLanguage(language: Language): void {
-    this._settingsService.storeAndUpdateSettings({ language });
+    this._settingsService.storeAndUpdateSettings({
+      language,
+    });
 
     this._alertService.showAlert(
       this._translocoService.translate('alerts.reload-to-update'),

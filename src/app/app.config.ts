@@ -4,8 +4,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco } from '@ngneat/transloco';
-import { LANGUAGES } from '@xxx/constants/languages.constant';
 import { DEFAULT_LANGUAGE } from '@xxx/constants/default-language.constant';
+import { LANGUAGES } from '@xxx/constants/languages.constant';
 import { Language } from '@xxx/interfaces/language.interface';
 import { routes } from './app.routes';
 import { TranslocoHttpLoader } from './transloco-loader';

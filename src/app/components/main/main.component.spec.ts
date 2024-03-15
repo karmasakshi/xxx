@@ -14,7 +14,9 @@ describe('MainComponent', () => {
       imports: [
         RouterTestingModule,
         getTranslocoModule(),
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: false,
+        }),
         MainComponent,
         NoopAnimationsModule,
       ],

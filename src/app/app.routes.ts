@@ -3,7 +3,17 @@ import { HomePageComponent } from '@xxx/components/home-page/home-page.component
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 
 export const routes: Routes = [
-  { component: HomePageComponent, path: '' },
-  { component: SettingsPageComponent, path: 'settings' },
-  { path: '**', pathMatch: 'full', redirectTo: '/' },
+  {
+    component: HomePageComponent,
+    path: '',
+  },
+  {
+    component: SettingsPageComponent,
+    path: 'settings',
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '/',
+  },
 ];

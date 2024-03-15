@@ -17,7 +17,10 @@ describe('StorageService', () => {
       imports: [getTranslocoModule()],
       providers: [
         StorageService,
-        { provide: LoggerService, useValue: loggerServiceSpy },
+        {
+          provide: LoggerService,
+          useValue: loggerServiceSpy,
+        },
       ],
     });
 
