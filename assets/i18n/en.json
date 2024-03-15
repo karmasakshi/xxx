@@ -9,9 +9,17 @@
     "settings": "Settings",
     "navigation-menu": "Navigation Menu"
   },
-  "xxx-settings-page": {},
+  "xxx-settings-page": {
+    "automatic": "Automatic",
+    "check-for-updates": "Check for Updates",
+    "reset": "Reset",
+    "language": "Language",
+    "reload": "Reload",
+    "theme": "Theme"
+  },
   "alerts": {
     "downloading-new-version": "Downloading new version...",
+    "reload-to-apply": "Reload to apply.",
     "reload-to-update": "Reload to update.",
     "ok-cta": "OK",
     "reload-cta": "RELOAD"

@@ -1,4 +1,5 @@
 {
+
   "xxx-home-page": {},
   "xxx-language-menu": {
     "language-menu": "Language Menu AR"
@@ -9,9 +10,17 @@
     "settings": "Settings AR",
     "navigation-menu": "Navigation Menu AR"
   },
-  "xxx-settings-page": {},
+  "xxx-settings-page": {
+    "automatic": "Automatic AR",
+    "check-for-updates": "Check for Updates AR",
+    "reset": "Reset AR",
+    "language": "Language AR",
+    "reload": "Reload AR",
+    "theme": "Theme AR"
+  },
   "alerts": {
     "downloading-new-version": "Downloading new version... AR",
+    "reload-to-apply": "Reload to apply. AR",
     "reload-to-update": "Reload to update. AR",
     "ok-cta": "OK AR",
     "reload-cta": "RELOAD AR"
