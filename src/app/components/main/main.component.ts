@@ -25,7 +25,6 @@ import { LoaderService } from '@xxx/services/loader/loader.service';
 import { LoggerService } from '@xxx/services/logger/logger.service';
 import { SettingsService } from '@xxx/services/settings/settings.service';
 import { Observable, Subscription, filter } from 'rxjs';
-import { LanguageMenuComponent } from '../language-menu/language-menu.component';
 
 @Component({
   imports: [
@@ -40,7 +39,6 @@ import { LanguageMenuComponent } from '../language-menu/language-menu.component'
     MatTooltipModule,
     RouterModule,
     TranslocoModule,
-    LanguageMenuComponent,
   ],
   selector: 'xxx-main',
   standalone: true,
