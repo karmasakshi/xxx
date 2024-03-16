@@ -1,24 +1,26 @@
 {
   "xxx-home-page": {},
-  "xxx-language-menu": {
-    "language-menu": "Language Menu"
-  },
   "xxx-main": {
-    "app-name": "XXX",
+    "app-name": "xxx",
     "home": "Home",
     "settings": "Settings",
     "navigation-menu": "Navigation Menu"
   },
   "xxx-settings-page": {
-    "automatic": "Automatic",
-    "check-for-updates": "Check for Updates",
+    "check-for-updates": "Check for updates",
     "reset": "Reset",
+    "reset-description": "Use default settings and reload",
     "language": "Language",
     "reload": "Reload",
-    "theme": "Theme"
+    "reload-description": "Preserve settings and reload",
+    "theme": "Theme",
+    "unknown": "Unknown"
   },
   "alerts": {
-    "downloading-new-version": "Downloading new version...",
+    "no-updates-found": "You're using the latest version.",
+    "checking-for-updates": "Checking for updates...",
+    "downloading-update": "Downloading update... AR",
+    "something-went-wrong": "Something went wrong.",
     "reload-to-apply": "Reload to apply.",
     "reload-to-update": "Reload to update.",
     "ok-cta": "OK",
