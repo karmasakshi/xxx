@@ -17,6 +17,7 @@ import {
 } from '@angular/router';
 import { SwUpdate, VersionEvent } from '@angular/service-worker';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
+import { STORAGE_KEYS } from '@xxx/constants/storage-keys.constant';
 import { Language } from '@xxx/interfaces/language.interface';
 import { LoaderConfiguration } from '@xxx/interfaces/loader-configuration.interface';
 import { Page } from '@xxx/interfaces/page.interface';
@@ -24,6 +25,7 @@ import { AlertService } from '@xxx/services/alert/alert.service';
 import { LoaderService } from '@xxx/services/loader/loader.service';
 import { LoggerService } from '@xxx/services/logger/logger.service';
 import { SettingsService } from '@xxx/services/settings/settings.service';
+import { StorageService } from '@xxx/services/storage/storage.service';
 import { Observable, Subscription, filter } from 'rxjs';
 
 @Component({
@@ -64,6 +66,7 @@ export class MainComponent implements OnInit, OnDestroy {
     private readonly _loaderService: LoaderService,
     private readonly _loggerService: LoggerService,
     private readonly _settingsService: SettingsService,
+    private readonly _storageService: StorageService,
   ) {
     this.activeUrl = undefined;
 
@@ -115,10 +118,12 @@ export class MainComponent implements OnInit, OnDestroy {
         (versionEvent: VersionEvent): void => {
           switch (versionEvent.type) {
             case 'VERSION_DETECTED':
+              this._storageService.setLocalStorageItem(
+                STORAGE_KEYS.LAST_UPDATE_CHECK_TIMESTAMP,
+                new Date().toISOString(),
+              );
               this._alertService.showAlert(
-                this._translocoService.translate(
-                  'alerts.downloading-new-version',
-                ),
+                this._translocoService.translate('alerts.downloading-update'),
                 this._translocoService.translate('alerts.ok-cta'),
               );
               break;
