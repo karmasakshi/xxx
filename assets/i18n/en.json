@@ -9,7 +9,7 @@
   "xxx-settings-page": {
     "check-for-update": "Check for update",
     "reset": "Reset",
-    "last-checked": "Last checked on {{ value }}",
+    "last-checked": "Last checked: {{ value }}",
     "reset-description": "Use default settings and reload",
     "language": "Language",
     "reload": "Reload",

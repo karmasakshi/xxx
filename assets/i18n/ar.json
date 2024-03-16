@@ -9,7 +9,7 @@
   "xxx-settings-page": {
     "check-for-update": "Check for update AR",
     "reset": "Reset AR",
-    "last-checked": "Last checked on {{ value }} AR",
+    "last-checked": "Last checked: {{ value }} AR",
     "reset-description": "Use default settings and reload AR",
     "language": "Language AR",
     "reload": "Reload AR",
