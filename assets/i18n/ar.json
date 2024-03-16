@@ -7,8 +7,9 @@
     "navigation-menu": "Navigation Menu AR"
   },
   "xxx-settings-page": {
-    "check-for-updates": "Check for updates AR",
+    "check-for-update": "Check for update AR",
     "reset": "Reset AR",
+    "last-checked": "Last checked on {{ value }} AR",
     "reset-description": "Use default settings and reload AR",
     "language": "Language AR",
     "reload": "Reload AR",
@@ -17,8 +18,8 @@
     "unknown": "Unknown AR"
   },
   "alerts": {
-    "no-updates-found": "You're on the latest version. AR",
-    "checking-for-updates": "Checking for updates... AR",
+    "no-update-found": "You're on the latest version. AR",
+    "checking-for-update": "Checking for update... AR",
     "downloading-update": "Downloading update... AR",
     "something-went-wrong": "Something went wrong. AR",
     "reload-to-apply": "Reload to apply. AR",

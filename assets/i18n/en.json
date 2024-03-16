@@ -7,8 +7,9 @@
     "navigation-menu": "Navigation Menu"
   },
   "xxx-settings-page": {
-    "check-for-updates": "Check for updates",
+    "check-for-update": "Check for update",
     "reset": "Reset",
+    "last-checked": "Last checked on {{ value }}",
     "reset-description": "Use default settings and reload",
     "language": "Language",
     "reload": "Reload",
@@ -17,9 +18,9 @@
     "unknown": "Unknown"
   },
   "alerts": {
-    "no-updates-found": "You're on the latest version.",
-    "checking-for-updates": "Checking for updates...",
-    "downloading-update": "Downloading update... AR",
+    "no-update-found": "You're on the latest version.",
+    "checking-for-update": "Checking for update...",
+    "downloading-update": "Downloading update...",
     "something-went-wrong": "Something went wrong.",
     "reload-to-apply": "Reload to apply.",
     "reload-to-update": "Reload to update.",
