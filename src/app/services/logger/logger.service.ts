@@ -6,6 +6,7 @@ import { isDevMode } from '@angular/core';
 })
 export class LoggerService {
   private readonly _isLoggingEnabled: boolean;
+
   public constructor() {
     this._isLoggingEnabled = isDevMode();
 

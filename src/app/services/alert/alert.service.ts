@@ -13,6 +13,7 @@ import { Language } from '@xxx/interfaces/language.interface';
 })
 export class AlertService {
   private readonly _directionality: Language['directionality'];
+
   public constructor(
     private readonly _matSnackBar: MatSnackBar,
     private readonly _settingsService: SettingsService,

@@ -11,10 +11,10 @@ import { StorageService } from '../storage/storage.service';
   providedIn: 'root',
 })
 export class SettingsService {
+  public settings$: Observable<Settings>;
+
   private readonly _defaultSettings: Settings;
   private readonly _settingsSubject: BehaviorSubject<Settings>;
-
-  public settings$: Observable<Settings>;
 
   public constructor(
     private readonly _translocoService: TranslocoService,

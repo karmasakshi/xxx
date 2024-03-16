@@ -7,10 +7,10 @@ import { LoggerService } from '../logger/logger.service';
   providedIn: 'root',
 })
 export class LoaderService {
+  public loaderConfiguration$: Observable<LoaderConfiguration>;
+
   private readonly _defaultLoaderConfiguration: LoaderConfiguration;
   private readonly _loaderConfigurationSubject: BehaviorSubject<LoaderConfiguration>;
-
-  public loaderConfiguration$: Observable<LoaderConfiguration>;
 
   public constructor(private readonly _loggerService: LoggerService) {
     this._defaultLoaderConfiguration = {
@@ -29,18 +29,18 @@ export class LoaderService {
     this._loggerService.logServiceInitialization('LoaderService');
   }
 
+  public hideLoader(): void {
+    this._loaderConfigurationSubject.next({
+      ...this._defaultLoaderConfiguration,
+      isVisible: false,
+    });
+  }
+
   public showLoader(): void {
     this._loaderConfigurationSubject.next({
       ...this._defaultLoaderConfiguration,
       isVisible: true,
       mode: 'indeterminate',
-    });
-  }
-
-  public hideLoader(): void {
-    this._loaderConfigurationSubject.next({
-      ...this._defaultLoaderConfiguration,
-      isVisible: false,
     });
   }
 }
