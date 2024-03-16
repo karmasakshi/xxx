@@ -17,7 +17,7 @@
     "unknown": "Unknown"
   },
   "alerts": {
-    "no-updates-found": "You're using the latest version.",
+    "no-updates-found": "You're on the latest version.",
     "checking-for-updates": "Checking for updates...",
     "downloading-update": "Downloading update... AR",
     "something-went-wrong": "Something went wrong.",
