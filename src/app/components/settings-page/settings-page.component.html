@@ -1,3 +1,61 @@
 <ng-container *transloco="let t; read: 'xxx-settings-page'">
-  <p>settings-page works!</p>
+  <br />
+
+  <mat-card role="group">
+    <mat-card-content>
+      <mat-action-list>
+        <button type="button" mat-list-item [matMenuTriggerFor]="languageMenu">
+          <mat-icon aria-hidden="true" matListItemIcon>translate</mat-icon>
+          <span matListItemTitle>{{ t('language') }}</span>
+          <span matListItemLine>{{ settings.language.name }}</span>
+        </button>
+
+        <button type="button" mat-list-item>
+          <mat-icon aria-hidden="true" matListItemIcon>palette</mat-icon>
+          <span matListItemTitle>{{ t('theme') }}</span>
+          <span matListItemLine>Automatic</span>
+        </button>
+
+        <button type="button" mat-list-item (click)="checkForUpdate()">
+          <mat-icon aria-hidden="true" matListItemIcon>sync</mat-icon>
+          <span matListItemTitle>{{ t('check-for-update') }}</span>
+          <span matListItemLine>{{
+            t('last-checked', { value: lastUpdateCheck })
+          }}</span>
+        </button>
+
+        <button type="button" mat-list-item (click)="reload()">
+          <mat-icon aria-hidden="true" matListItemIcon>refresh</mat-icon>
+          <span matListItemTitle>{{ t('reload') }}</span>
+          <span matListItemLine>{{ t('reload-description') }}</span>
+        </button>
+
+        <button type="button" mat-list-item (click)="reset()">
+          <mat-icon aria-hidden="true" matListItemIcon>restart_alt</mat-icon>
+          <span matListItemTitle>{{ t('reset') }}</span>
+          <span matListItemLine>{{ t('reset-description') }}</span>
+        </button>
+      </mat-action-list>
+    </mat-card-content>
+  </mat-card>
+
+  <br />
+
+  <div style="text-align: center">
+    <pre>v{{ version }}</pre>
+  </div>
+
+  <mat-menu xPosition="before" #languageMenu="matMenu">
+    @for (language of languages; track language.value) {
+      <button
+        [disabled]="settings.language.value === language.value"
+        (click)="setLanguage(language)"
+        type="button"
+        mat-menu-item
+      >
+        <mat-icon>translate</mat-icon>
+        <span>{{ language.name }}</span>
+      </button>
+    }
+  </mat-menu>
 </ng-container>
