@@ -13,10 +13,11 @@
       [mode]="isSmallViewport ? 'over' : 'side'"
       [opened]="!isSmallViewport"
     >
-      <mat-toolbar>{{ t('app-name') }}</mat-toolbar>
+      <mat-toolbar role="heading">{{ t('app-name') }}</mat-toolbar>
       <mat-nav-list [attr.aria-label]="t('navigation-menu')">
         @for (page of pages; track page.url) {
           <a
+            matListItemTitle
             [activated]="activeUrl === page.url"
             mat-list-item
             [routerLink]="page.url"
@@ -27,7 +28,7 @@
         }
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content role="main">
       @if (loaderConfiguration$ | async; as loaderConfiguration) {
         <mat-progress-bar
           style="position: absolute; top: 0; left: 0; right: 0"
@@ -66,9 +67,9 @@
       <mat-tab-nav-panel #tabNavPanel>
         <main
           style="
-            padding: 0 calc(env(safe-area-inset-right) + 16px)
+            padding: 0 calc(env(safe-area-inset-right) + 22.5px)
               calc(env(safe-area-inset-bottom) + 120px)
-              calc(env(safe-area-inset-left) + 16px);
+              calc(env(safe-area-inset-left) + 22.5px);
           "
         >
           <router-outlet />
@@ -78,6 +79,7 @@
         <nav
           [attr.aria-label]="t('navigation-menu')"
           mat-tab-nav-bar
+          backgroundColor="primary"
           [tabPanel]="tabNavPanel"
           style="
             bottom: 0;

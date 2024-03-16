@@ -12,6 +12,7 @@
   "xxx-settings-page": {},
   "alerts": {
     "downloading-new-version": "Downloading new version... AR",
+    "reload-to-apply": "Reload to apply. AR",
     "reload-to-update": "Reload to update. AR",
     "ok-cta": "OK AR",
     "reload-cta": "RELOAD AR"

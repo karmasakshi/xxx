@@ -12,6 +12,7 @@
   "xxx-settings-page": {},
   "alerts": {
     "downloading-new-version": "Downloading new version...",
+    "reload-to-apply": "Reload to apply.",
     "reload-to-update": "Reload to update.",
     "ok-cta": "OK",
     "reload-cta": "RELOAD"
