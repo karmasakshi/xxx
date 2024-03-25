@@ -15,7 +15,7 @@ import { AlertService } from '@xxx/services/alert/alert.service';
 import { LoggerService } from '@xxx/services/logger/logger.service';
 import { SettingsService } from '@xxx/services/settings/settings.service';
 import { StorageService } from '@xxx/services/storage/storage.service';
-import { version } from 'package.json';
+import packageJson from 'package.json';
 
 @Component({
   imports: [
@@ -56,7 +56,7 @@ export class SettingsPageComponent implements OnInit {
 
     this.settings = this._settingsService.settings;
 
-    this.version = version;
+    this.version = packageJson.version;
 
     this._loggerService.logComponentInitialization('SettingsPageComponent');
   }
